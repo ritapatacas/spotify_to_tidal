@@ -1,35 +1,46 @@
-# Config and cache files
+env/
 config.yml
-config.yaml
-.cache*
-.session.yml
+.vscode/
+usr/
+
+apps/spotidal/scr/__pycache__/
+apps/spotidal/scr/.cache*
+apps/spotidal/scr/config.yml
+apps/spotidal/scr/.session.yml
+
+#### SPOTIFY TO TIDAL ####
+# Config and cache files
+apps/spotify_to_tidal/config.yml
+apps/spotify_to_tidal/config.yaml
+apps/spotify_to_tidal/.cache*
+apps/spotify_to_tidal/.session.yml
 
 # Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+apps/spotify_to_tidal/__pycache__/
+apps/spotify_to_tidal/*.py[cod]
+apps/spotify_to_tidal/*$py.class
 
 # Distribution / packaging
-build/
-dist/
-eggs/
-.eggs/
-sdist/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
+apps/spotify_to_tidal/build/
+apps/spotify_to_tidal/dist/
+apps/spotify_to_tidal/eggs/
+apps/spotify_to_tidal/.eggs/
+apps/spotify_to_tidal/sdist/
+apps/spotify_to_tidal/wheels/
+apps/spotify_to_tidal/*.egg-info/
+apps/spotify_to_tidal/.installed.cfg
+apps/spotify_to_tidal/*.egg
 
 # Environments
-.env
-.venv
-env/
-venv/
+apps/spotify_to_tidal/.env
+apps/spotify_to_tidal/.venv
+apps/spotify_to_tidal/env/
+apps/spotify_to_tidal/venv/
 
 # mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
+apps/spotify_to_tidal/.mypy_cache/
+apps/spotify_to_tidal/.dmypy.json
+apps/spotify_to_tidal/dmypy.json
 
 # Visual Studio Code
-.vscode/
+apps/spotify_to_tidal/.vscode/

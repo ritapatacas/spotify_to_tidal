@@ -1,47 +1,29 @@
-A command line tool for importing your Spotify playlists into Tidal. Due to various performance optimisations, it is particularly suited for periodic synchronisation of very large collections.
+# spotidal2u
+An app threesome that offers you love.
+Improves your quality of life transferring your spotify playlists to tidal platform.
+Smooth the capitalistic rivalry and monopoly that rules music streaming platforms.
 
-Installation
------------
-Clone this git repository and then run:
 
-```bash
-python3 -m pip install -e .
-```
+## steps
+- fetch your spotify playlists data (choose which playlists you want)
+- search each track in tidal and saves to a same-name playlist
+- get a log of not found tracks
 
-Setup
------
-0. Rename the file example_config.yml to config.yml
-0. Go [here](https://developer.spotify.com/documentation/general/guides/authorization/app-settings/) and register a new app on developer.spotify.com.
-0. Copy and paste your client ID and client secret to the Spotify part of the config file
-0. Copy and paste the value in 'redirect_uri' of the config file to Redirect URIs at developer.spotify.com and press ADD
-0. Enter your Spotify username to the config file
+## todos
+- search for not found tracks individually
+- download playlist tracks
+- upgrade textual ui
 
-Usage
-----
-To synchronize all of your Spotify playlists with your Tidal account run the following from the project root directory
 
-```bash
-spotify_to_tidal
-```
 
-You can also just synchronize a specific playlist by doing the following:
 
-```bash
-spotify_to_tidal --uri 1ABCDEqsABCD6EaABCDa0a # accepts playlist id or full playlist uri
-```
+## working scripts
+- run menu.py
+- fetch spotify playlists `apps\sync_playlists\src\fetch_sp_playlists.py` - relocated to spotify.py
+    it saves new:
+        user_playlists.json (raw spotify response)
+        playlists_list.json (just playlists names and ids)
+- select playlists: `apps\sync_playlists\src\select_playlists.py`
+- search and save to tidal: `apps\sync_playlists\src\save_to_tidal.py` - or in utils.py sync_playlist(sp_playlist_id)
 
-or sync just your 'Liked Songs' with:
-
-```bash
-spotify_to_tidal --sync-favorites
-```
-
-See example_config.yml for more configuration options, and `spotify_to_tidal --help` for more options.
-
----
-
-#### Join our amazing community as a code contributor
-<br><br>
-<a href="https://github.com/spotify2tidal/spotify_to_tidal/graphs/contributors">
-  <img class="dark-light" src="https://contrib.rocks/image?repo=spotify2tidal/spotify_to_tidal&anon=0&columns=25&max=100&r=true" />
-</a>
+we are working in sync.py at searching a track within a playlist tidal_search()
