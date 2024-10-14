@@ -1,29 +1,32 @@
-# spotidal2u
-An app threesome that offers you love.
-Improves your quality of life transferring your spotify playlists to tidal platform.
-Smooth the capitalistic rivalry and monopoly that rules music streaming platforms.
+# Spotidal2Y  
+An app threesome that offers you love.  
+Enhances your quality of life by transferring your Spotify playlists to TIDAL.  
+Bridging the gap in the music streaming wars, one playlist at a time.
 
+## What is it?  
+A simple Python app that syncs your playlists and automates the downloading of TIDAL tracks.
 
-## steps
-- fetch your spotify playlists data (choose which playlists you want)
-- search each track in tidal and saves to a same-name playlist
-- get a log of not found tracks
+*Does this project solve a major problem?*  
+*Will this automation end anyone's suffering?*  
+Probably not.
 
-## todos
-- search for not found tracks individually
-- download playlist tracks
-- upgrade textual ui
+But did I enjoy building it? :)
 
+## Features  
+- Search and select Spotify playlists, or  
+- Load a previously saved playlist selection to  
+- Sync playlists or  
+- Download tracks directly from TIDAL  
+- Includes a log for tracks that couldn't be found
 
+## To-do  
+- [ ] Simplify setup and ensure all critical files are ready  
+- [ ] Improve search functionality for missing tracks  
+- [ ] Optimize the sync process for TIDAL tracks  
+- [ ] Make TIDAL tracks persist across syncs  
+- [ ] Fully integrate TIDAL playlist track downloads
 
-
-## working scripts
-- run menu.py
-- fetch spotify playlists `apps\sync_playlists\src\fetch_sp_playlists.py` - relocated to spotify.py
-    it saves new:
-        user_playlists.json (raw spotify response)
-        playlists_list.json (just playlists names and ids)
-- select playlists: `apps\sync_playlists\src\select_playlists.py`
-- search and save to tidal: `apps\sync_playlists\src\save_to_tidal.py` - or in utils.py sync_playlist(sp_playlist_id)
-
-we are working in sync.py at searching a track within a playlist tidal_search()
+### Credits  
+This project began as a fork of [spotify_to_tidal](https://github.com/spotify2tidal), combined with the [python-tidal algorithm](https://github.com/tamland/python-tidal).  
+It was built for personal use and learning purposes. There is an automation feature that uses [tidal-media-downloader](https://github.com/yaronzz/Tidal-Media-Downloader).  
+Thanks to everyone involved!
