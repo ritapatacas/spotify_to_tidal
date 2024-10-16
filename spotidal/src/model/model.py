@@ -1,8 +1,8 @@
-import spotidal.scr.model.helpers.utils as utils
-from spotidal.scr.model.helpers.text import Text as t
-import spotidal.scr.model.helpers.synchronizer as sync
-import spotidal.scr.model.auth as auth
-from spotidal.scr.model.helpers.type.file import File
+import spotidal.src.model.helpers.utils as utils
+from spotidal.src.view.text import Text as t
+import spotidal.src.model.helpers.synchronizer as sync
+import spotidal.src.model.auth as auth
+from spotidal.src.model.helpers.type.file import Files
 
 
 class Model:
@@ -12,8 +12,8 @@ class Model:
         self.sp_playlist_names = []
         self.current_selection = []
         self.playlist_selection = []
-        self.saved_selection = File.SELECTION.load()
-        self.init()
+        self.saved_selection = Files.SELECTION.load()
+        #self.init()
 
     def init(self):
         self.get_user_playlists()
@@ -44,11 +44,11 @@ class Model:
         self.current_selection.append(e)
 
     def get_saved_selection(self):
-        saved_selection = File.SELECTION.load()
+        saved_selection = Files.SELECTION.load()
         return saved_selection
 
     def save_selection(self, selected_playlists):
-        File.SELECTION.save(selected_playlists)
+        Files.SELECTION.save(selected_playlists)
 
     def open_sessions(self):
         sessions = {"sp": auth.open_sp_session(), "td": auth.get_td_session()}

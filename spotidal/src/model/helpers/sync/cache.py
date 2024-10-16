@@ -1,9 +1,9 @@
 from typing import List, Sequence
 import tidalapi
-from spotidal.scr.model.helpers.cache import failure_cache, track_match_cache
-from spotidal.scr.model.helpers.type import spotify as t_spotify
-from spotidal.scr.model.helpers.text import Text as t
-import spotidal.scr.model.helpers.sync.match as _match
+from spotidal.src.model.helpers.cache import failure_cache, track_match_cache
+from spotidal.src.model.helpers.type import spotify as t_spotify
+from spotidal.src.view.text import Text as txt
+import spotidal.src.model.helpers.sync.match as _match
 
 
 def populate_track_match_cache(
@@ -71,7 +71,7 @@ def get_tracks_for_new_td_playlist(
                     [artist["name"] for artist in t["artists"]]
                 )
                 print(
-                    t.error(
+                    txt.error(
                         f"'{track_name}', '{artist_names}' is duplicate and will be ignored"
                     )
                 )

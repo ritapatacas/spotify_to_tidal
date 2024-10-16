@@ -4,7 +4,7 @@ from typing import List
 import tidalapi
 from tqdm import tqdm
 from tqdm.asyncio import tqdm as atqdm
-from spotidal.scr.model.helpers.text import Text as t
+from spotidal.src.view.text import Text as t
 
 
 progress_color = "\033[38;5;102m"

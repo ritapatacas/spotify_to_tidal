@@ -3,14 +3,14 @@ import datetime
 from typing import Sequence, Mapping
 import tidalapi
 from tqdm.asyncio import tqdm as atqdm
-from spotidal.scr.model.helpers.cache import failure_cache, track_match_cache
-from spotidal.scr.model.helpers.type import spotify as t_spotify
-from spotidal.scr.model.helpers.text import Text as t
-from spotidal.scr.model.helpers.type.file import File
-import spotidal.scr.model.helpers.sync.match as _match
-import spotidal.scr.model.helpers.sync.cache as _cache
-import spotidal.scr.model.helpers.sync.request_utils as _req
-import spotidal.scr.model.helpers.sync.search as _search
+from spotidal.src.model.helpers.cache import failure_cache, track_match_cache
+from spotidal.src.model.helpers.type import spotify as t_spotify
+from spotidal.src.view.text import Text as t
+from spotidal.src.model.helpers.type.file import Files
+import spotidal.src.model.helpers.sync.match as _match
+import spotidal.src.model.helpers.sync.cache as _cache
+import spotidal.src.model.helpers.sync.request_utils as _req
+import spotidal.src.model.helpers.sync.search as _search
 
 
 async def td_search(
@@ -131,7 +131,7 @@ async def search_new_tracks_on_td(
                 f"{sp_track['name']} - {','.join([a['name'] for a in sp_track['artists']])}\n"
             )
             print(t.error(f" could not find the track '{song404[-1]}'"))
-    File.NOT_FOUND.save(''.join(not_found) + '\n')
+    Files.NOT_FOUND.save(''.join(not_found) + '\n')
 
 def pick_td_playlist_for_sp_playlist(
     sp_playlist, td_playlists: Mapping[str, tidalapi.Playlist]

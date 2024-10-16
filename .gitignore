@@ -3,4 +3,4 @@ env/
 usr/
 .cache*
 **/__pycache__/*
-spotidal/scr/arch/*
+spotidal/src/arch/*

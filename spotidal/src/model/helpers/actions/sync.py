@@ -1,12 +1,12 @@
-import spotidal.scr.model.helpers.utils as utils
-import spotidal.scr.model.helpers.synchronizer as _sync
-from spotidal.scr.model.helpers.type.file import File
+import spotidal.src.model.helpers.utils as utils
+import spotidal.src.model.helpers.synchronizer as _sync
+from spotidal.src.model.helpers.type.file import Files
 
 
 class Sync:
     def __init__(self, sessions):
         self.sessions = sessions
-        self.sp_credentials = File.SP_SESSION.load()["spotify"]
+        self.sp_credentials = Files.SP_SESSION.load()["spotify"]
 
 
     def _sync_playlist(self, sp_id):

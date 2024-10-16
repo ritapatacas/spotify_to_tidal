@@ -1,6 +1,6 @@
 import re
 from enum import Enum
-from spotidal.scr.model.helpers.utils import get_parsed_playlists
+from spotidal.src.model.helpers.utils import get_parsed_playlists
 
 
 

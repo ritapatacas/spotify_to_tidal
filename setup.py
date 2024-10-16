@@ -10,7 +10,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "spotidal2 = spotidal.scr.view.view:main",
+            "spotidal2 = spotidal.src.view.view:main",
         ],
     },
 )

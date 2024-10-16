@@ -1,5 +1,5 @@
-from spotidal.scr.model.helpers.type.file import File
-from spotidal.scr.model.helpers.text import Text as t
+from spotidal.src.model.helpers.type.file import Files
+from spotidal.src.view.text import Text as t
 
 
 def fetch_parsed_playlists(sp_playlists, td_playlists):
@@ -17,7 +17,8 @@ def fetch_parsed_playlists(sp_playlists, td_playlists):
             playlist_dict[name] = {"name": name, "sp_id": None, "td_id": p.id}
 
     parsed_playlists = list(playlist_dict.values())
-    File.PLAYLISTS.save(parsed_playlists)
+    Files.PLAYLISTS.save(parsed_playlists)
+    Files.PARSED_PLAYLISTS.save(parsed_playlists)
     return parsed_playlists
 
 
@@ -33,8 +34,8 @@ def list_handler(reference, action):
 
 
 def get_saved_selection():
-    return File.SELECTION.load()
+    return Files.SELECTION.load()
 
 
 def get_parsed_playlists():
-    return File.PLAYLISTS.load()
+    return Files.PLAYLISTS.load()

@@ -1,7 +1,7 @@
 import sys
 import subprocess
-import spotidal.scr.model.helpers.utils as utils
-from spotidal.scr.model.helpers.type.file import File
+import spotidal.src.model.helpers.utils as utils
+from spotidal.src.model.helpers.type.file import Files
 
 
 def check_and_install_tidal_dl():
@@ -22,8 +22,8 @@ def check_and_install_tidal_dl():
 
 def default_Settings():
     check_and_install_tidal_dl()
-    default_settings = File.DEFAULT_SETTINGS.load()
-    File.SETTINGS.save(default_settings)
+    default_settings = Files.DEFAULT_SETTINGS.load()
+    Files.SETTINGS.save(default_settings)
 
 
 def check_login():

@@ -3,19 +3,19 @@ from typing import List
 import spotipy
 import tidalapi
 from tqdm import tqdm
-from spotidal.scr.model.helpers.cache import track_match_cache
-from spotidal.scr.model.helpers.tidalapi import (
+from spotidal.src.model.helpers.cache import track_match_cache
+from spotidal.src.model.helpers.tidalapi import (
     add_multiple_tracks_to_playlist,
     clear_td_playlist,
     get_all_favorites,
     get_all_playlist_tracks,
 )
-from spotidal.scr.model.helpers.text import Text as t
-import spotidal.scr.model.helpers.sync.match as _match
-import spotidal.scr.model.helpers.sync.search as _search
-import spotidal.scr.model.helpers.sync.cache as _cache
-import spotidal.scr.model.helpers.sync.request_utils as _req
-import spotidal.scr.model.helpers.sync.playlists_handler as _playlists
+from spotidal.src.view.text import Text as t
+import spotidal.src.model.helpers.sync.match as _match
+import spotidal.src.model.helpers.sync.search as _search
+import spotidal.src.model.helpers.sync.cache as _cache
+import spotidal.src.model.helpers.sync.request_utils as _req
+import spotidal.src.model.helpers.sync.playlists_handler as _playlists
 
 
 async def sync_playlist(

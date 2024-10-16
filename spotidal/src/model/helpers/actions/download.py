@@ -1,13 +1,13 @@
-import spotidal.scr.model.helpers.utils as utils
-import spotidal.scr.model.helpers.td_downloader as downloader
-from spotidal.scr.model.helpers.type.file import File
+import spotidal.src.model.helpers.utils as utils
+import spotidal.src.model.helpers.td_downloader as downloader
+from spotidal.src.model.helpers.type.file import Files
 
 
 class Download:
     def __init__(self, sessions):
         self.sp_session = sessions["sp"]
         self.td_session = sessions["td"]
-        self.sp_credentials = File.SP_SESSION.load()["spotify"]
+        self.sp_credentials = Files.SP_SESSION.load()["spotify"]
 
     def _download_by_td_id(self, td_id):
         downloader.download_playlist(td_id)

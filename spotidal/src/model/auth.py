@@ -2,9 +2,9 @@ import sys
 import spotipy as sp_api
 import tidalapi as td_api
 import webbrowser
-import spotidal.scr.model.helpers.utils as utils
-from spotidal.scr.model.helpers.type.file import File
-from spotidal.scr.model.helpers.text import Text as t
+import spotidal.src.model.helpers.utils as utils
+from spotidal.src.model.helpers.type.file import Files
+from spotidal.src.view.text import Text as t
 
 
 __all__ = ["open_sp_session", "open_td_session"]
@@ -13,29 +13,22 @@ SPOTIFY_SCOPES = "playlist-read-private, user-library-read"
 
 
 def open_sp_session() -> sp_api.Spotify:
-    config = File.SP_SESSION.load()["spotify"]
+    credentials = Files.SP_SESSION.load()["spotify"]
     scope = "user-library-read playlist-read-private user-follow-read playlist-modify-private playlist-modify-public"
 
-    credentials_manager = sp_api.SpotifyOAuth(
-        username=config["username"],
+    auth = sp_api.SpotifyOAuth(
+        username=credentials["username"],
         scope=scope,
-        client_id=config["client_id"],
-        client_secret=config["client_secret"],
-        redirect_uri=config["redirect_uri"],
+        client_id=credentials["client_id"],
+        client_secret=credentials["client_secret"],
+        redirect_uri=credentials["redirect_uri"],
         requests_timeout=2,
     )
     try:
-        credentials_manager.get_access_token(as_dict=False)
+        auth.get_access_token(as_dict=False)
     except sp_api.SpotifyOauthError:
-        sys.exit(
-            t.error(
-                "error opening spotify session > could not get token for username ".format(
-                    config["username"]
-                )
-            )
-        )
-
-    return sp_api.Spotify(oauth_manager=credentials_manager)
+        sys.exit(t.error("error opening spotify session > could not get token"))
+    return sp_api.Spotify(oauth_manager=auth)
 
 
 def open_td_session() -> td_api.Session:
@@ -48,7 +41,7 @@ def open_td_session() -> td_api.Session:
         url = "https://" + url
     webbrowser.open(url)
     future.result()
-    utils.save_session(
+    Files.TD_SESSION.save(
         {
             "session_id": session.session_id,
             "token_type": session.token_type,
@@ -60,7 +53,7 @@ def open_td_session() -> td_api.Session:
     return session
 
 def get_td_session() -> td_api.Session:
-    previous_session = File.TD_SESSION.load()
+    previous_session = Files.TD_SESSION.load()
 
     session = td_api.Session()
     if previous_session:

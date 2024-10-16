@@ -15,10 +15,11 @@ class Ext(Enum):
     TXT = '.txt'
 
 
-class File(Enum):
+class Files(Enum):
     DEFAULT_SETTINGS = Path.USR, 'default_settings', Ext.JSON
     SETTINGS = Path.TD_DL_NG, 'settings', Ext.JSON
     PLAYLISTS = Path.USR, 'playlists', Ext.JSON
+    PARSED_PLAYLISTS = Path.USR, 'parsed_playlists', Ext.YML
     SELECTION = Path.USR, 'selection', Ext.JSON
     NOT_FOUND = Path.USR, 'not_found', Ext.TXT
     TD_SESSION = Path.USR, 'session', Ext.YML
@@ -35,6 +36,8 @@ class File(Enum):
             elif file_ext == Ext.JSON:
                 with open(file_path, 'w', encoding="utf-8") as f:
                     json.dump(data, f, indent=4)
+
+            # todo make sp session data persist in same doc as td session
             elif file_ext == Ext.YML:
                 with open(file_path, 'w', encoding="utf-8") as f:
                     yaml.dump(data, f)
@@ -46,7 +49,7 @@ class File(Enum):
     def load(self):
         file_path = self.resolver(self)
         _, _, file_ext = self.value
-        
+
         try:
             with open(file_path, 'r') as file:
                 if file_ext == Ext.JSON:

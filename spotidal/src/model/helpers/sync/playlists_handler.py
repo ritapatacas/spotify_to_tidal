@@ -5,10 +5,10 @@ import spotipy
 import tidalapi
 from tqdm.asyncio import tqdm as atqdm
 import math
-from spotidal.scr.model.helpers.tidalapi import get_all_playlists
-from spotidal.scr.model.helpers.text import Text as t
-import spotidal.scr.model.helpers.sync.search as _search
-import spotidal.scr.model.helpers.sync.request_utils as _req
+from spotidal.src.model.helpers.tidalapi import get_all_playlists
+from spotidal.src.view.text import Text as t
+import spotidal.src.model.helpers.sync.search as _search
+import spotidal.src.model.helpers.sync.request_utils as _req
 
 
 def get_td_playlists_wrapper(

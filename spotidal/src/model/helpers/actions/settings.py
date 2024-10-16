@@ -1,4 +1,4 @@
-import spotidal.scr.model.helpers.td_downloader as downloader
+import spotidal.src.model.helpers.td_downloader as downloader
 
 
 class Settings:
